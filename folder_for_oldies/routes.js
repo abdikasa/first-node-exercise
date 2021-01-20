@@ -23,8 +23,9 @@ const handleRequests = (req, res) => {
     });
     return req.on("end", () => {
       const parsedBody = Buffer.concat(body).toString();
-      console.log(parsedBody);
-      fs.writeFile("message.txt", parsedBody.split("=")[1], (err) => {
+      const message = parsedBody.split("=")[1];
+      fs.writeFile("message.txt", message, (err) => {
+        console.log("testing....");
         res.statusCode = 302;
         res.setHeader("Location", "/");
         return res.end();
