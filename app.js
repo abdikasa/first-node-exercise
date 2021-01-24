@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 //prefixes routes with admin
-app.use("/admin", adminRoutes.routes);
+app.use("/admin", adminRoutes);
 app.use(userRoutes);
 app.use(errorRoutes);
 
