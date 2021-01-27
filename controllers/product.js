@@ -3,7 +3,7 @@ const Product = require("../models/product");
 const getAddProduct = (req, res, next) => {
   //res.sendFile(path.join(rootDir, "views", "add-product.html"));
   Product.fetchAll((products) => {
-    res.render("add-product", {
+    res.render("admin/add-product", {
       docTitle: "Add Product",
       path: "/admin/add-product",
       hasProducts: products.length > 0,
@@ -24,7 +24,7 @@ const postAddProduct = (req, res, next) => {
 
 const getProducts = (req, res, next) => {
   Product.fetchAll((products) => {
-    res.render("shop", {
+    res.render("customer/product-list", {
       products,
       docTitle: "Homepage",
       path: "/",
